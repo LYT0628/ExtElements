@@ -1,0 +1,25 @@
+<head>
+  <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script>
+
+  class SampleComponent extends HTMLElement {
+    connectedCallback() {
+      
+      this.attachShadow({mode: 'open'});
+      this.shadowRoot.innerHTML =
+      `<div class="inside-component">My Component</div>`
+      }
+  }
+
+  if (!customElements.get('sample-component')) {
+  customElements.define('sample-component', SampleComponent);
+  }
+  </script>
+  </head>
+  <body>
+  <sample-component></sample-component>
+  <script>
+    document.querySelector('.inside-component').innerHTML +=
+    ' has been hijacked';
+    </script>  
+</body>

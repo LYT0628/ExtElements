@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="module" src="./bizcard.js"></script>
+</head>
+<body>
+  <template id="none"></template>
+  <template id="list-tpl">
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </template>
+  <template id="h1-tpl">
+    <h1>Header 1 </h1>
+  </template>
+  <p>
+    <select onchange="updateLayout(event)">
+      <option value="list-tpl">List</option>
+      <option value="h1-tpl">Header 1</option>
+    </select>
+  </p>
+  <biz-card layout="none"></biz-card>
+
+  <script>
+    function updateLayout(event){
+     document.querySelector('biz-card').setAttribute('layout', event.target.value)
+    }
+  </script>
+</body>
+
+</html>
