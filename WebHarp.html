@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="module"   src="./components/app/app.js"></script>
+  <link href="./node_modules/csshake/dist/csshake.min.css" rel="stylesheet" type="text/css"/>  
+  <link href="main.css" rel="stylesheet" type="text/css"/>
+  <script>
+    function clicktostart() {
+      document.querySelector('.audio-fix').style.display = 'none';
+      document.querySelector('webharp-app').style.display =
+      'inline-block';
+    }
+  </script>
+  <title>Document</title>
+</head>
+  <body>
+    <webharp-app strings="12"></webharp-app>
+    <div class="audio-fix"
+          onclick="clicktostart()">
+          Click Me To Start
+    </div>
+  </body>
+</html>

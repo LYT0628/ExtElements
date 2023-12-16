@@ -1,3 +1,4 @@
+// connectedCallBack vs constructor+shadowDom
 
 class PhotoCarousel extends HTMLElement{
 

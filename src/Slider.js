@@ -1,7 +1,8 @@
 // this refer to element itself
 
 class Slider extends HTMLElement{
-  // callback when element is mount to DOM
+
+  // callback when element is mounted to DOM
   connectedCallback(){
     const bg = document.createElement('div')
     bg.classList.add('bg-overlay')
@@ -13,17 +14,19 @@ class Slider extends HTMLElement{
     document.addEventListener('mousemove', e => this.eventHandle(e));
     document.addEventListener('mouseup', e => this.eventHandle(e));
     document.addEventListener('mousedown', e => this.eventHandle(e));
+    
     // initial 
-
     this.setColor(this.bgColor)
     this.refresh(this.value)
 
-
   }
 
+  // return the custom properties, which you need to do something when they changed. 
   static get observedAttributes(){
     return ['value', 'bgColor']
   }
+
+  // called when focused properties was changed.
   attributeChangedCallback(attr, oldVal, newVal){
     switch(attr){
       case 'value':
@@ -50,21 +53,30 @@ class Slider extends HTMLElement{
     }
   }
 
-
+  // x is length between thumb`s origin x and  slider`s origin x 
   updateX(x){
-    let hpox = 
-    x - this.querySelector('.thumb').offsetWidth/2;
+    // horizontal position of X
+    let hpox = x - this.querySelector('.thumb').offsetWidth/2;
+
+    // top right
     if(hpox > this.offsetWidth){
       hpox = this.offsetWidth;
     }
+    // too left 
     if(hpox < 0 ){
       hpox = 0
     }
+    // 
     this.value = (hpox / this.offsetWidth) * 100;
   }
 
+
+  
   eventHandle(e){
+    // rectangle 
     const bounds = this.getBoundingClientRect();
+
+    // x is length between thumb`s origin x and  slider`s origin x 
     const x = e.clientX - bounds.left;
 
     switch(e.type){
@@ -84,6 +96,7 @@ class Slider extends HTMLElement{
     }
   }
   
+// access method
   set value(val){
     this.setAttribute('value', val);
   }
@@ -99,8 +112,7 @@ class Slider extends HTMLElement{
     return this.getAttribute('bgColor');
   }
 }
+
 if(!customElements.get('ext-slider')){
   customElements.define('ext-slider', Slider);
 }
-
-

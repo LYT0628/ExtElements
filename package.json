@@ -1,0 +1,27 @@
+{
+  "name": "extels",
+  "version": "0.0.1",
+  "description": "self-contained WebComponent",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LYT0628/ExtElements.git"
+  },
+  "keywords": [
+    "web",
+    "component"
+  ],
+  "author": "LYT0628",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/LYT0628/ExtElements/issues"
+  },
+  "homepage": "https://github.com/LYT0628/ExtElements#readme",
+  "dependencies": {
+    "csshake": "^1.7.0",
+    "midi.js": "^0.3.1"
+  }
+}
