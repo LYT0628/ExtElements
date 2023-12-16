@@ -6,6 +6,7 @@ extends HTMLElement {
   strum(params){
     if (this.timer) { clearTimeout(this.timer); }
     let dur = params.power * 10 + 250;
+    // for shake
     this.classList.add(
       'shake',
       'shake-constant',
@@ -13,6 +14,7 @@ extends HTMLElement {
       if (dur < 500) {
         this.classList.add('shake-little');
       }
+      
       this.timer = setTimeout( () => this.stopStrum(), dur);
       this.playSound(params);
   }
@@ -22,7 +24,7 @@ extends HTMLElement {
   }
 
   connectedCallback(){
-
+    // load sound resources
     MIDI.loadPlugin({
       soundfontUrl: './',
       instrument: 'acoustic_grand_piano',

@@ -1,6 +1,6 @@
 import WebHarpStrings from '../strings/strings.js';
 
-
+// container to webharp-strings
 export default class WebHarpApp extends HTMLElement {
   connectedCallback() {
     this.innerHTML = '<webharp-strings strings="' + this.getAttribute('strings') + '"></webharp-strings>';
@@ -9,10 +9,12 @@ export default class WebHarpApp extends HTMLElement {
                             e => this.onMouseMove(e));
   }
 
+  // record location of mouse
   onMouseMove(event) {
     this.stringsElement.points = {
       last: this.lastPoint,
       current: { x: event.pageX, y: event.pageY } };
+      // save last mouse point
       this.lastPoint = { x: event.pageX, y: event.pageY };
     }
 }
